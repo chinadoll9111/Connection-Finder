@@ -1,10 +1,16 @@
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import tkinter as tk
 from tkinter import ttk
-from csv_loader import load_csv
-from bfs import bfs
+from DAVIIS.bfs import bfs_find_path
+from ELIJAH.csv_loader import load_csv
+
 
 # Load graph
-graph = load_csv("data.csv")
+graph = load_csv("ELIJAH/data.csv")
+print(graph)
 
 # Create window
 root = tk.Tk()
@@ -90,7 +96,7 @@ def search():
         output.config(text="❌ First person not found", fg="#ef4444")
         return
 
-    result = bfs(graph, start, target)
+    result = bfs_find_path(graph, start, target)
 
     if result:
         output.config(text=" → ".join(result), fg="#22c55e")

@@ -2,8 +2,8 @@ from collections import deque
 
 def bfs_find_path(graph, start, goal):
     # 1. Handle cases where names aren't in the data
-    if start not in graph or goal not in graph:
-        return None
+    if start not in graph:
+      return None
 
     # 2. The Queue stores the entire path so far
     queue = deque([[start]])
